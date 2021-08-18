@@ -43,7 +43,6 @@ export async function downloadLaunchData() {
     };
 
     launches.set(flightData.flightNumber, flightData);
-    log.info(JSON.stringify(flightData));
   }
 }
 
@@ -58,12 +57,17 @@ async function fetchUserInfo() {
     },
   });
   const personData = await response.json();
-  console.log(personData);
 }
 
 await downloadLaunchData();
 log.info(`Downloaded data for ${launches.size} SpaceX launches`);
 
-function getAll() {
+export function getAll() {
   return Array.from(launches.values());
+}
+
+export function getOne(id: number) {
+  if (launches.has(id)) {
+    return launches.get(id);
+  }
 }
