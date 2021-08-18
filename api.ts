@@ -1,9 +1,9 @@
 import { Router } from "https://deno.land/x/oak@v8.0.0/mod.ts";
-import * as planets from './models/planets.ts';
+import * as planets from "./models/planets.ts";
 
 const router = new Router();
 
-router.get('/', (ctx) => {
+router.get("/", (ctx) => {
   ctx.response.body = `
     {___     {__      {_         {__ __        {_       
     {_ {__   {__     {_ __     {__    {__     {_ __     
